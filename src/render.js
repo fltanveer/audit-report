@@ -224,22 +224,31 @@ btns.forEach(b=>b.onclick=()=>{const v=b.dataset.filter;btns.forEach(x=>x.setAtt
 
 /* --------------------------------------------------------------- dashboard */
 
-function renderDashboard(rows, { extraHead = '' } = {}) {
+// isStatic: hosted build (e.g. Vercel). No export API there, so buttons link straight to the committed PDFs.
+function renderDashboard(rows, { extraHead = '', isStatic = false } = {}) {
   const row = r => {
     const pdf = `/exports/${encodeURIComponent(r.slug)}/${encodeURIComponent(r.exportName)}.pdf`;
+    if (isStatic) {
+      const status = r.exported ? '<span class="st st-ok">PDF ready</span>' : '<span class="st st-new">Not exported yet</span>';
+      const btn = r.exported
+        ? `<a class="btn btn-primary" href="${esc(pdf)}" download><span class="ico" aria-hidden="true">↓</span>Download PDF</a>`
+        : `<button class="btn btn-primary" disabled><span class="ico" aria-hidden="true">↓</span>Download PDF</button>`;
+      return staticRow(r, status, btn);
+    }
     const status = r.problems.length
       ? `<details class="warn"><summary>${r.problems.length} data issue${r.problems.length === 1 ? '' : 's'}</summary><ul>${r.problems.map(p => `<li>${esc(p)}</li>`).join('')}</ul></details>`
       : r.exported
         ? `<span class="st ${r.stale ? 'st-stale' : 'st-ok'}">${r.stale ? 'Changed since export' : 'PDF ready'}</span><span class="when">Exported ${esc(r.exported)}</span>`
         : '<span class="st st-new">Not exported yet</span>';
-    return `<tr>
+    return staticRow(r, status, `<button class="btn btn-primary" data-slug="${esc(r.slug)}" data-pdf="${esc(pdf)}" data-fresh="${r.exported && !r.stale ? 1 : 0}"${r.problems.length ? ' disabled title="Fix the data issues first"' : ''}><span class="ico" aria-hidden="true">↓</span><span class="lbl-t">Download PDF</span></button>`);
+  };
+  const staticRow = (r, status, btn) => `<tr>
   <td class="c-client"><a class="site" href="/a/${esc(r.slug)}">${esc(r.site)}</a><span class="sub">${esc(r.auditKind)} · ${esc(r.date)}</span></td>
   <td class="c-score"><span class="score ${band(r.score)}"><b>${r.score ?? '–'}</b><i style="--v:${Math.max(0, Math.min(100, r.score ?? 0))}%"></i></span></td>
   <td class="c-find"><span class="counts">${SEVERITIES.filter(s => r.counts[s]).map(s => `<span class="count sev-${s}" title="${r.counts[s]} ${s}"><b>${r.counts[s]}</b> ${s}</span>`).join('')}</span></td>
   <td class="c-status">${status}</td>
-  <td class="c-act"><div class="actions"><a class="btn" href="/a/${esc(r.slug)}">Preview</a><button class="btn btn-primary" data-slug="${esc(r.slug)}" data-pdf="${esc(pdf)}" data-fresh="${r.exported && !r.stale ? 1 : 0}"${r.problems.length ? ' disabled title="Fix the data issues first"' : ''}><span class="ico" aria-hidden="true">↓</span><span class="lbl-t">Download PDF</span></button></div></td>
+  <td class="c-act"><div class="actions"><a class="btn" href="/a/${esc(r.slug)}">Preview</a>${btn}</div></td>
  </tr>`;
-  };
   const body = `<main class="wrap dash">
  <header class="dash-head"><div class="logo"><i>C</i>Audit Studio</div></header>
  <h1>Audits</h1>
@@ -247,7 +256,7 @@ function renderDashboard(rows, { extraHead = '' } = {}) {
  ${rows.map(row).join('')}
  </tbody></table></div>` : `<div class="empty"><h2>No audits yet</h2><p>Add an audit folder under <code>audits/</code> to see it here.</p></div>`}
 </main>
-<script>
+${isStatic ? '' : `<script>
 // Download PDF: rebuild first only when the audit or templates changed since the last export.
 document.querySelectorAll('[data-slug]').forEach(b => b.addEventListener('click', async () => {
   const t = b.querySelector('.lbl-t'), label = t.textContent;
@@ -265,7 +274,7 @@ document.querySelectorAll('[data-slug]').forEach(b => b.addEventListener('click'
   } catch (e) { alert('Export failed: ' + e.message); }
   b.disabled = false; b.classList.remove('busy'); t.textContent = label;
 }));
-</script>`;
+</script>`}`;
   return page({ title: 'Audit Studio', body, styles: ['dashboard.css'], inlineAssets: false, extraHead });
 }
 

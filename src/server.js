@@ -28,11 +28,12 @@ const sendFile = (res, file, download = false) => {
 const errorPage = (res, e) => send(res, 500, `<!doctype html><meta charset="utf-8"><title>Error</title><pre style="font:14px/1.5 monospace;padding:32px;white-space:pre-wrap">${String(e.message).replace(/</g, '&lt;')}</pre>${RELOAD}`);
 
 const server = http.createServer(async (req, res) => {
-  const { renderReport, renderDashboard, loadAudit, summaries, exportAudit } = app();
   const url = new URL(req.url, 'http://localhost');
   const parts = url.pathname.split('/').filter(Boolean).map(decodeURIComponent);
   if (parts.some(p => !SAFE.test(p))) return send(res, 400, 'Bad path', 'text/plain');
   try {
+    // inside try: a half-saved file under src/ shows an error page instead of crashing the server
+    const { renderReport, renderDashboard, loadAudit, summaries, exportAudit } = app();
     if (parts.length === 0) return send(res, 200, renderDashboard(summaries(), { extraHead: RELOAD }));
     if (parts[0] === 'events') {
       res.writeHead(200, { 'Content-Type': 'text/event-stream', 'Cache-Control': 'no-store', Connection: 'keep-alive' });

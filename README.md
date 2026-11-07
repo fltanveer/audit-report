@@ -56,3 +56,9 @@ The PDF has a bookmark outline: sections, every finding and the roadmap phases. 
 - Critical and High findings also get a colored top rule.
 - Orange is reserved for the problem boxes on screenshots.
 - All text colors pass WCAG AA contrast. The tokens are in `src/styles/tokens.css`.
+
+## Hosting (Vercel)
+
+`npm run build` writes a static site to `dist/`: the dashboard, a preview page per audit, and the PDF and HTML exports. `vercel.json` tells Vercel to run that build and serve `dist/`.
+
+The hosted site cannot build PDFs, because Vercel has no Chrome. Run `npm run export` locally, then commit `exports/` before you push. On the hosted dashboard, **Download PDF** downloads the committed PDF.
