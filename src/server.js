@@ -2,9 +2,10 @@
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
-const { renderReport, renderDashboard } = require('./render');
-const { AUDITS, EXPORTS, SAFE, loadAudit, summaries } = require('./audits');
-const { exportAudit } = require('./export');
+const { AUDITS, EXPORTS, SAFE } = require('./audits');
+// Load app modules per request so code edits under src/ apply without restarting the server.
+const SRC_MODULES = ['./render', './audits', './export'].map(m => require.resolve(m));
+const app = () => ({ ...require('./render'), ...require('./audits'), ...require('./export') });
 
 const PORT = Number(process.env.PORT) || 4710;
 const TYPES = { '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.png': 'image/png', '.webp': 'image/webp', '.woff2': 'font/woff2', '.pdf': 'application/pdf', '.html': 'text/html; charset=utf-8' };
@@ -13,18 +14,21 @@ const TYPES = { '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.png': 'image/png'
 const clients = new Set();
 const RELOAD = `<script class="live-reload">new EventSource('/events').onmessage=()=>location.reload()</script>`;
 let timer;
-const notify = () => { clearTimeout(timer); timer = setTimeout(() => clients.forEach(res => res.write('data: reload\n\n')), 150); };
+const notify = () => { SRC_MODULES.forEach(m => delete require.cache[m]); clearTimeout(timer); timer = setTimeout(() => clients.forEach(res => res.write('data: reload\n\n')), 150); };
 for (const dir of [AUDITS, __dirname]) { try { fs.watch(dir, { recursive: true }, notify); } catch { /* watching is optional */ } }
 
 const send = (res, code, body, type = 'text/html; charset=utf-8') => { res.writeHead(code, { 'Content-Type': type, 'Cache-Control': 'no-store' }); res.end(body); };
-const sendFile = (res, file) => {
+const sendFile = (res, file, download = false) => {
   if (!fs.existsSync(file)) return send(res, 404, 'Not found', 'text/plain');
-  res.writeHead(200, { 'Content-Type': TYPES[path.extname(file).toLowerCase()] || 'application/octet-stream', 'Cache-Control': 'no-store' });
+  const headers = { 'Content-Type': TYPES[path.extname(file).toLowerCase()] || 'application/octet-stream', 'Cache-Control': 'no-store' };
+  if (download) headers['Content-Disposition'] = `attachment; filename="${path.basename(file).replace(/"/g, '')}"`;
+  res.writeHead(200, headers);
   fs.createReadStream(file).pipe(res);
 };
 const errorPage = (res, e) => send(res, 500, `<!doctype html><meta charset="utf-8"><title>Error</title><pre style="font:14px/1.5 monospace;padding:32px;white-space:pre-wrap">${String(e.message).replace(/</g, '&lt;')}</pre>${RELOAD}`);
 
 const server = http.createServer(async (req, res) => {
+  const { renderReport, renderDashboard, loadAudit, summaries, exportAudit } = app();
   const url = new URL(req.url, 'http://localhost');
   const parts = url.pathname.split('/').filter(Boolean).map(decodeURIComponent);
   if (parts.some(p => !SAFE.test(p))) return send(res, 400, 'Bad path', 'text/plain');
@@ -40,9 +44,13 @@ const server = http.createServer(async (req, res) => {
       return send(res, 200, renderReport(audit, { asset: (slug, file) => `/a/${encodeURIComponent(slug)}/shots/${encodeURIComponent(file)}`, extraHead: RELOAD, backHref: '/' }));
     }
     if (parts[0] === 'a' && parts[2] === 'shots' && parts.length === 4) return sendFile(res, path.join(AUDITS, parts[1], 'shots', parts[3]));
-    if (parts[0] === 'exports' && parts.length === 3) return sendFile(res, path.join(EXPORTS, parts[1], parts[2]));
+    if (parts[0] === 'exports' && parts.length === 3) return sendFile(res, path.join(EXPORTS, parts[1], parts[2]), url.searchParams.has('download'));
     if (parts[0] === 'api' && parts[1] === 'export' && parts.length === 3 && req.method === 'POST') {
-      try { const out = await exportAudit(parts[2]); return send(res, 200, JSON.stringify(out), 'application/json'); }
+      try {
+        const out = await exportAudit(parts[2]);
+        const base = `/exports/${encodeURIComponent(parts[2])}/`;
+        return send(res, 200, JSON.stringify({ pdfUrl: base + encodeURIComponent(path.basename(out.pdf)), htmlUrl: base + encodeURIComponent(path.basename(out.html)) }), 'application/json');
+      }
       catch (e) { return send(res, 422, JSON.stringify({ error: e.message }), 'application/json'); }
     }
     send(res, 404, 'Not found', 'text/plain');

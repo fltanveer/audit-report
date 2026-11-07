@@ -71,15 +71,29 @@ function validate(audit) {
   return p;
 }
 
+function newestMtime(dir) {
+  let max = 0;
+  for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+    const p = path.join(dir, e.name);
+    max = Math.max(max, e.isDirectory() ? newestMtime(p) : fs.statSync(p).mtimeMs);
+  }
+  return max;
+}
+
 function summaries() {
   return listSlugs().map(slug => {
     try {
       const a = loadAudit(slug);
       const pdf = path.join(EXPORTS, slug, `${a.exportName}.pdf`);
+      const html = path.join(EXPORTS, slug, `${a.exportName}.html`);
+      // Chrome can stamp the PDF with an odd mtime; the HTML is written by Node, so use its time.
+      const builtAt = fs.existsSync(pdf) && fs.existsSync(html) ? fs.statSync(html).mtimeMs : 0;
       return {
         slug, site: a.site, auditKind: a.auditKind, date: a.date, score: a.score?.overall,
         counts: severityCounts(a), problems: validate(a), exportName: a.exportName,
-        exported: fs.existsSync(pdf) ? fs.statSync(pdf).mtime.toLocaleString() : null,
+        exported: builtAt ? new Date(builtAt).toLocaleString('en-US', { dateStyle: 'medium', timeStyle: 'short' }) : null,
+        // stale: the audit data or the templates changed after the last export
+        stale: !builtAt || newestMtime(path.join(AUDITS, slug)) > builtAt || newestMtime(__dirname) > builtAt,
       };
     } catch (e) {
       return { slug, site: slug, auditKind: '', date: '', score: null, counts: {}, problems: [e.message], exportName: slug, exported: null };

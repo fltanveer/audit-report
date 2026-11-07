@@ -14,7 +14,7 @@ You need Node 18 or later and Chrome or Edge, which prints the PDFs. The app has
 | `npm run export -- <slug>` | Writes `exports/<slug>/<exportName>.html` and `.pdf` |
 | `npm run export -- --all` | Exports every audit |
 
-You can also export from the dashboard with the **Export** button on each row.
+On the dashboard, each audit's **Download PDF** button downloads the PDF. It rebuilds the PDF first only when the audit data or the templates changed since the last export. The status column shows "PDF ready" or "Changed since export".
 
 If Chrome or Edge is installed somewhere unusual, set `CHROME_PATH` to the browser's executable.
 

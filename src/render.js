@@ -225,32 +225,45 @@ btns.forEach(b=>b.onclick=()=>{const v=b.dataset.filter;btns.forEach(x=>x.setAtt
 /* --------------------------------------------------------------- dashboard */
 
 function renderDashboard(rows, { extraHead = '' } = {}) {
+  const row = r => {
+    const pdf = `/exports/${encodeURIComponent(r.slug)}/${encodeURIComponent(r.exportName)}.pdf`;
+    const status = r.problems.length
+      ? `<details class="warn"><summary>${r.problems.length} data issue${r.problems.length === 1 ? '' : 's'}</summary><ul>${r.problems.map(p => `<li>${esc(p)}</li>`).join('')}</ul></details>`
+      : r.exported
+        ? `<span class="st ${r.stale ? 'st-stale' : 'st-ok'}">${r.stale ? 'Changed since export' : 'PDF ready'}</span><span class="when">Exported ${esc(r.exported)}</span>`
+        : '<span class="st st-new">Not exported yet</span>';
+    return `<tr>
+  <td class="c-client"><a class="site" href="/a/${esc(r.slug)}">${esc(r.site)}</a><span class="sub">${esc(r.auditKind)} · ${esc(r.date)}</span></td>
+  <td class="c-score"><span class="score ${band(r.score)}"><b>${r.score ?? '–'}</b><i style="--v:${Math.max(0, Math.min(100, r.score ?? 0))}%"></i></span></td>
+  <td class="c-find"><span class="counts">${SEVERITIES.filter(s => r.counts[s]).map(s => `<span class="count sev-${s}" title="${r.counts[s]} ${s}"><b>${r.counts[s]}</b> ${s}</span>`).join('')}</span></td>
+  <td class="c-status">${status}</td>
+  <td class="c-act"><div class="actions"><a class="btn" href="/a/${esc(r.slug)}">Preview</a><button class="btn btn-primary" data-slug="${esc(r.slug)}" data-pdf="${esc(pdf)}" data-fresh="${r.exported && !r.stale ? 1 : 0}"${r.problems.length ? ' disabled title="Fix the data issues first"' : ''}><span class="ico" aria-hidden="true">↓</span><span class="lbl-t">Download PDF</span></button></div></td>
+ </tr>`;
+  };
   const body = `<main class="wrap dash">
- <header class="dash-head"><div class="logo"><i>C</i>Audit Studio</div><span class="dash-sub">${rows.length} audit${rows.length === 1 ? '' : 's'} · data in <code>audits/</code></span></header>
+ <header class="dash-head"><div class="logo"><i>C</i>Audit Studio</div></header>
  <h1>Audits</h1>
- ${rows.length ? `<table class="dash-table"><thead><tr><th>Client site</th><th>Audit</th><th>Date</th><th class="num">Score</th><th>Findings</th><th>Checks</th><th>Export</th><th></th></tr></thead><tbody>
- ${rows.map(r => `<tr>
-  <td><a class="site" href="/a/${esc(r.slug)}">${esc(r.site)}</a><span class="slug">${esc(r.slug)}</span></td>
-  <td>${esc(r.auditKind)}</td>
-  <td class="nowrap">${esc(r.date)}</td>
-  <td class="num"><b class="score ${band(r.score)}">${r.score ?? '–'}</b></td>
-  <td><span class="counts">${SEVERITIES.filter(s => r.counts[s]).map(s => `<span class="count sev-${s}">${pips(s)}${r.counts[s]} ${s}</span>`).join('')}</span></td>
-  <td>${r.problems.length ? `<details class="warn"><summary>${r.problems.length} issue${r.problems.length === 1 ? '' : 's'}</summary><ul>${r.problems.map(p => `<li>${esc(p)}</li>`).join('')}</ul></details>` : '<span class="ok">Valid</span>'}</td>
-  <td class="nowrap">${r.exported ? `<a href="/exports/${esc(r.slug)}/${esc(r.exportName)}.pdf">PDF</a> · <a href="/exports/${esc(r.slug)}/${esc(r.exportName)}.html">HTML</a><span class="when">${esc(r.exported)}</span>` : '<span class="when">Not exported</span>'}</td>
-  <td><div class="actions"><a class="btn" href="/a/${esc(r.slug)}">Preview</a><button class="btn btn-primary" data-export="${esc(r.slug)}">Export</button></div></td>
- </tr>`).join('')}
- </tbody></table>` : `<div class="empty"><h2>No audits yet</h2><p>Create one with <code>npm run new -- client-slug</code>, then fill in <code>audits/client-slug/audit.json</code>.</p></div>`}
- <p class="help">New audit: <code>npm run new -- &lt;slug&gt;</code>. Format: <code>AUDIT-FORMAT.md</code>. Export all from the terminal: <code>npm run export -- --all</code>.</p>
+ ${rows.length ? `<div class="card"><table class="dash-table"><thead><tr><th>Client</th><th>Score</th><th>Findings</th><th>Status</th><th><span class="sr">Actions</span></th></tr></thead><tbody>
+ ${rows.map(row).join('')}
+ </tbody></table></div>` : `<div class="empty"><h2>No audits yet</h2><p>Add an audit folder under <code>audits/</code> to see it here.</p></div>`}
 </main>
 <script>
-document.querySelectorAll('[data-export]').forEach(b => b.addEventListener('click', async () => {
-  const label = b.textContent; b.disabled = true; b.textContent = 'Exporting…';
+// Download PDF: rebuild first only when the audit or templates changed since the last export.
+document.querySelectorAll('[data-slug]').forEach(b => b.addEventListener('click', async () => {
+  const t = b.querySelector('.lbl-t'), label = t.textContent;
+  const download = () => { location.href = b.dataset.pdf + '?download&t=' + Date.now(); };
+  if (b.dataset.fresh === '1') return download();
+  b.disabled = true; b.classList.add('busy'); t.textContent = 'Building PDF…';
   try {
-    const r = await fetch('/api/export/' + b.dataset.export, { method: 'POST' });
+    const r = await fetch('/api/export/' + b.dataset.slug, { method: 'POST' });
     const j = await r.json();
     if (!r.ok) throw new Error(j.error || r.statusText);
-    location.reload();
-  } catch (e) { b.textContent = label; b.disabled = false; alert('Export failed: ' + e.message); }
+    b.dataset.fresh = '1';
+    const st = b.closest('tr').querySelector('.c-status');
+    st.innerHTML = '<span class="st st-ok">PDF ready</span><span class="when">Exported just now</span>';
+    download();
+  } catch (e) { alert('Export failed: ' + e.message); }
+  b.disabled = false; b.classList.remove('busy'); t.textContent = label;
 }));
 </script>`;
   return page({ title: 'Audit Studio', body, styles: ['dashboard.css'], inlineAssets: false, extraHead });
