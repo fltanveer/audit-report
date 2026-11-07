@@ -1,0 +1,15 @@
+{
+  "name": "audit-studio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Cognixlab UX audit reports: one design, data per audit, export to self-contained HTML and PDF.",
+  "scripts": {
+    "dev": "node src/server.js",
+    "export": "node src/export.js",
+    "new": "node src/new.js",
+    "check": "node src/audits.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

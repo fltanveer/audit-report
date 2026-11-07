@@ -1,0 +1,970 @@
+{
+  "slug": "parcels",
+  "exportName": "parcels-UX-Audit-Report",
+  "agency": {
+    "name": "Cognixlab",
+    "initial": "C"
+  },
+  "reportType": "UX & Conversion Audit",
+  "date": "November 4, 2026",
+  "auditKind": "Online store audit",
+  "site": "parcelsgifts.com",
+  "title": "Beautiful mission, [mute:hidden products.] Why parcels is not selling online.",
+  "lede": "A page by page review of the parcels online store, focused on one question: what stops a visitor who loves the cause from buying a gift today?",
+  "score": {
+    "overall": 52,
+    "areas": [
+      {
+        "label": "Product discovery",
+        "score": 41
+      },
+      {
+        "label": "Product pages",
+        "score": 47
+      },
+      {
+        "label": "Trust and checkout",
+        "score": 55
+      },
+      {
+        "label": "Mobile experience",
+        "score": 58
+      },
+      {
+        "label": "Mission storytelling",
+        "score": 52
+      }
+    ]
+  },
+  "meta": [
+    {
+      "label": "Website",
+      "value": "parcelsgifts.com"
+    },
+    {
+      "label": "Pages reviewed",
+      "value": "Home, Shop All, product, cart, About, mobile"
+    },
+    {
+      "label": "Devices",
+      "value": "Desktop + mobile"
+    },
+    {
+      "label": "Prepared by",
+      "value": "AR Tanveer, Cognixlab"
+    }
+  ],
+  "summary": {
+    "heading": "The store has 631 products and a story people want to support. The site hides both.",
+    "intro": "parcels already has what most gift shops pay agencies to invent: real makers, a clear purpose and a physical store. Online, that advantage disappears. [risk:Visitors land on photos with no products], browse an alphabetical list that starts with \"#2 Pencil Holder\", and reach [risk:product pages that never mention the artist]. [risk:Shipping only becomes free at $150 while most items cost $8 to $30]. The fixes below are [gain:mostly content and configuration inside Square Online, not a rebuild].",
+    "kpis": [
+      {
+        "value": "3",
+        "label": "Critical issues blocking sales or goals",
+        "tone": "critical"
+      },
+      {
+        "value": "5",
+        "label": "High priority issues",
+        "tone": "high"
+      },
+      {
+        "value": "3",
+        "label": "Medium and low polish issues",
+        "tone": "medium"
+      },
+      {
+        "value": "+60 to 110%",
+        "label": "Estimated online revenue lift after the 90 day plan",
+        "tone": "gain"
+      }
+    ],
+    "takeaways": [
+      {
+        "label": "The core problem",
+        "text": "Visitors [risk:cannot find a gift quickly.] No gift categories, no price filters in the menu, and a default sort that is alphabetical instead of bestsellers."
+      },
+      {
+        "label": "The biggest lever",
+        "text": "The [key:maker story is missing at the point of purchase.] Putting the artist and the impact on every product page turns a $10 item into a meaningful gift."
+      },
+      {
+        "label": "The money leak",
+        "text": "A [risk:$150 free shipping threshold] on $10 to $30 items means almost no cart qualifies. Shipping cost surprises are the top reason people abandon carts."
+      }
+    ]
+  },
+  "strengths": {
+    "heading": "What is already working",
+    "intro": "These are worth protecting in any redesign.",
+    "items": [
+      {
+        "title": "Authentic photography",
+        "text": "Real makers, real workshops. The hero carousel is warm and human, far stronger than stock imagery."
+      },
+      {
+        "title": "Clear, consistent brand",
+        "text": "The blue and white palette and the \"arc\" in the logo tie the store to Northeast Arc without feeling corporate."
+      },
+      {
+        "title": "Sticky Add to Cart on mobile",
+        "text": "On phones, an Add to Cart bar stays pinned to the bottom of the product page. Keep it."
+      },
+      {
+        "title": "Fast, trusted checkout",
+        "text": "Square checkout with Apple Pay, Google Pay and Cash App lowers friction for impulse gift buyers."
+      },
+      {
+        "title": "Gift and pickup options",
+        "text": "A \"This is a gift\" option and free store pickup at Liberty Tree Mall are real advantages over big box stores."
+      },
+      {
+        "title": "Large catalog",
+        "text": "631 items across 18 categories means there is a gift for every budget, if people can find it."
+      }
+    ]
+  },
+  "findings": {
+    "heading": "Issues, evidence and fixes",
+    "intro": "Each finding shows the live screen we captured, the problem marked in orange, what to change, and the result you can expect. Ordered by business impact.",
+    "items": [
+      {
+        "id": "01",
+        "severity": "critical",
+        "area": "Homepage",
+        "effort": "S",
+        "title": "The first screen shows makers but no products, prices or reason to buy now",
+        "layout": "wide",
+        "shots": [
+          {
+            "device": "mobile",
+            "src": "f01-1.jpg",
+            "alt": "Mobile, first screen: 100% photo carousel",
+            "width": 750,
+            "height": 1624,
+            "caption": "Mobile, first screen: 100% photo carousel",
+            "marks": [
+              {
+                "n": 1,
+                "x": 0,
+                "y": 8.5,
+                "w": 100,
+                "h": 47,
+                "pin": "tl"
+              }
+            ]
+          },
+          {
+            "device": "desktop",
+            "src": "f01-2.jpg",
+            "url": "parcelsgifts.com",
+            "alt": "Desktop: first product appears ~2,200px down",
+            "width": 800,
+            "height": 600,
+            "caption": "Desktop: first product appears ~2,200px down",
+            "marks": [
+              {
+                "n": 2,
+                "x": 0,
+                "y": 19.5,
+                "w": 100,
+                "h": 49.5,
+                "pin": "tl"
+              },
+              {
+                "n": 3,
+                "x": 8,
+                "y": 89,
+                "w": 13,
+                "h": 8,
+                "pin": "tr"
+              }
+            ]
+          }
+        ],
+        "why": "Most visitors decide within a few seconds whether a store has something for them. Without products or a seasonal hook above the fold, gift shoppers bounce before they ever see the catalog.",
+        "found": [
+          "On mobile the photo carousel fills the entire first screen; [risk:a visitor sees no product, price or offer].",
+          "On desktop the first product card sits [key:about 2,200px below the top], after four editorial banners.",
+          "The only call to action is a generic \"Shop now\" that drops people into [risk:an alphabetical list of 631 items]."
+        ],
+        "recommendations": [
+          "Replace the carousel with a [fix:split hero]: one maker photo plus a headline such as \"Holiday gifts that pay artists with disabilities a living wage\".",
+          "Add two buttons: [fix:Shop holiday gifts] and [fix:Gifts under $25].",
+          "Move the \"Most popular\" product row directly under the hero, and add a strip of 4 to 6 gift category tiles."
+        ],
+        "impact": [
+          {
+            "value": "+20 to 35%",
+            "label": "homepage to product click through"
+          },
+          {
+            "value": "-15 to 25%",
+            "label": "homepage bounce rate"
+          }
+        ]
+      },
+      {
+        "id": "02",
+        "severity": "critical",
+        "area": "Shop All",
+        "effort": "S",
+        "title": "Shop All defaults to A to Z sorting, so 631 products open with \"#2 Pencil Holder\"",
+        "layout": "wide",
+        "shots": [
+          {
+            "device": "desktop",
+            "src": "f02-3.jpg",
+            "url": "parcelsgifts.com/s/shop",
+            "alt": "Default sort is Alphabetical (A-Z)",
+            "width": 800,
+            "height": 609,
+            "caption": "Default sort is Alphabetical (A-Z)",
+            "marks": [
+              {
+                "n": 1,
+                "x": 73,
+                "y": 26.5,
+                "w": 18.5,
+                "h": 7,
+                "pin": "tr"
+              },
+              {
+                "n": 2,
+                "x": 35,
+                "y": 39,
+                "w": 57,
+                "h": 33,
+                "pin": "tl"
+              }
+            ]
+          },
+          {
+            "device": "desktop",
+            "src": "f02-4.jpg",
+            "url": "parcelsgifts.com/s/shop",
+            "alt": "Mixed photo backgrounds in the grid",
+            "width": 800,
+            "height": 600,
+            "caption": "Mixed photo backgrounds in the grid",
+            "marks": [
+              {
+                "n": 3,
+                "x": 34.5,
+                "y": 9.5,
+                "w": 56,
+                "h": 24,
+                "pin": "tl"
+              }
+            ]
+          }
+        ],
+        "why": "Alphabetical order surfaces items by their SKU name, not by appeal. Best sellers and hero gifts are buried pages deep, so shoppers who do click \"Shop now\" see the weakest first impression of the catalog.",
+        "found": [
+          "The full catalog of 631 items across 22 pages [risk:is sorted alphabetically], so the first products are a pencil holder and \"10 Oz\" candles.",
+          "Categories live only in a sidebar list; there is [risk:no gift recipient, occasion or price based browsing].",
+          "Product photos mix bright red backdrops, grey seamless and busy store shelves, so [risk:the grid looks unedited]."
+        ],
+        "recommendations": [
+          "Set default sort to [fix:Popularity] (already available in Square) or a hand curated \"Featured\" order.",
+          "Add shortcut chips above the grid: [fix:Under $15, Under $25, Holiday, For the home, Food gifts, Made locally].",
+          "Agree a simple photo standard: square crop, light neutral background, product centered. Reshoot the top 50 sellers first."
+        ],
+        "impact": [
+          {
+            "value": "+15 to 25%",
+            "label": "product views per session"
+          },
+          {
+            "value": "+10 to 20%",
+            "label": "add to cart rate from listing pages"
+          }
+        ]
+      },
+      {
+        "id": "03",
+        "severity": "critical",
+        "area": "Product page",
+        "effort": "M",
+        "title": "Product pages never tell the maker's story, which is the main reason people buy here",
+        "layout": "wide",
+        "shots": [
+          {
+            "device": "desktop",
+            "src": "f03-5.jpg",
+            "url": "parcelsgifts.com/product/10-oz-candy-cane-bath-tea",
+            "alt": "The only maker mention is one line at the end of the description",
+            "width": 800,
+            "height": 600,
+            "caption": "The only maker mention is one line at the end of the description",
+            "marks": [
+              {
+                "n": 1,
+                "x": 60.5,
+                "y": 77.5,
+                "w": 30,
+                "h": 22,
+                "pin": "tl"
+              }
+            ]
+          },
+          {
+            "device": "desktop",
+            "src": "f03-6.jpg",
+            "url": "parcelsgifts.com",
+            "alt": "The mission lives at the bottom of the homepage",
+            "width": 800,
+            "height": 600,
+            "caption": "The mission lives at the bottom of the homepage",
+            "marks": [
+              {
+                "n": 2,
+                "x": 22,
+                "y": 39,
+                "w": 56,
+                "h": 32,
+                "pin": "tl"
+              }
+            ]
+          }
+        ],
+        "why": "parcels competes with Amazon and Target on price and convenience, and loses. It wins on meaning. When the meaning is invisible at the moment of decision, a $10 bath tea is just a $10 bath tea.",
+        "found": [
+          "The only reference to the creator is [risk:a single line at the end of the description], for example \"Created by Blossom Artisanal, a social enterprise in Florida\".",
+          "[risk:No maker photo, no name in the title area], no line about what the purchase supports.",
+          "No \"More from this maker\" or \"You may also like\" section, and [risk:no customer reviews]."
+        ],
+        "recommendations": [
+          "Add a [fix:Meet the maker] card under the price: photo, name, one sentence story, link to all their products.",
+          "Add an impact line near Add to Cart: [fix:\"Your purchase pays the artist directly and supports jobs for people with disabilities.\"]",
+          "Turn on related products and add a gift message preview. Collect reviews after pickup and delivery."
+        ],
+        "impact": [
+          {
+            "value": "+15 to 30%",
+            "label": "product page add to cart rate"
+          },
+          {
+            "value": "+10 to 15%",
+            "label": "average order value via related items"
+          }
+        ]
+      },
+      {
+        "id": "04",
+        "severity": "high",
+        "area": "Cart and shipping",
+        "effort": "S",
+        "title": "A $150 free shipping threshold on $10 to $30 gifts, and $0.00 shipping shown until checkout",
+        "layout": "wide",
+        "shots": [
+          {
+            "device": "desktop",
+            "src": "f04-7.jpg",
+            "url": "parcelsgifts.com/s/cart",
+            "alt": "\"Spend $140 more\" on a $10 cart; estimated shipping shows $0.00",
+            "width": 800,
+            "height": 600,
+            "caption": "\"Spend $140 more\" on a $10 cart; estimated shipping shows $0.00",
+            "marks": [
+              {
+                "n": 1,
+                "x": 65.5,
+                "y": 24.5,
+                "w": 34,
+                "h": 7,
+                "pin": "tl"
+              },
+              {
+                "n": 2,
+                "x": 65.5,
+                "y": 76.5,
+                "w": 34,
+                "h": 4.5,
+                "pin": "tr"
+              },
+              {
+                "n": 3,
+                "x": 0,
+                "y": 97,
+                "w": 99,
+                "h": 3,
+                "pin": "tr"
+              }
+            ]
+          }
+        ],
+        "why": "Unexpected extra costs are the most common reason shoppers abandon a cart (Baymard Institute). A threshold that almost nobody reaches does not motivate bigger orders; it signals that shipping will be expensive.",
+        "found": [
+          "Free shipping starts at $150, while typical items cost $8 to $30. [risk:A $10 order is told to spend $140 more].",
+          "\"Estimated shipping $0.00\" is displayed in the cart, [risk:then real shipping is added at checkout].",
+          "The cart page has a horizontal scrollbar and the \"Continue to payment\" button is [risk:below the fold on a laptop screen]."
+        ],
+        "recommendations": [
+          "Test a [fix:$50 or $60 free shipping threshold], or a flat $5.95 rate shown on product pages.",
+          "Show a real shipping estimate (or \"calculated from $X\") instead of $0.00.",
+          "Fix the horizontal overflow and keep the payment button visible; add \"Complete the gift\" add-ons under $15 in the cart."
+        ],
+        "impact": [
+          {
+            "value": "-10 to 20%",
+            "label": "cart abandonment"
+          },
+          {
+            "value": "+15 to 25%",
+            "label": "average order value with a reachable threshold"
+          }
+        ]
+      },
+      {
+        "id": "05",
+        "severity": "high",
+        "area": "Navigation",
+        "effort": "S",
+        "title": "Main menu has no way to shop by gift need; corporate gifting is not mentioned at all",
+        "layout": "wide",
+        "shots": [
+          {
+            "device": "desktop",
+            "src": "f05-8.jpg",
+            "url": "parcelsgifts.com",
+            "alt": "Five menu items, none of them a product category",
+            "width": 800,
+            "height": 600,
+            "caption": "Five menu items, none of them a product category",
+            "marks": [
+              {
+                "n": 1,
+                "x": 25,
+                "y": 13,
+                "w": 50,
+                "h": 4.5,
+                "pin": "tl"
+              }
+            ]
+          }
+        ],
+        "why": "Gift buyers shop by recipient and budget, not by product type. Every extra step between \"I need a gift for my aunt under $30\" and a product page loses buyers.",
+        "found": [
+          "The menu is Home, Shop All, Introducing Shanga, Gift card, About Us. [risk:No category, occasion or price entries].",
+          "\"Introducing Shanga\" takes [key:one of five menu slots for a single partner brand].",
+          "Corporate gifting, a high value channel promoted on ne-arc.org, [risk:does not exist anywhere on the store]."
+        ],
+        "recommendations": [
+          "Menu: [fix:Holiday Gifts, Shop by Category, Gifts by Price, Corporate Gifts, Our Makers, Visit the Store].",
+          "Create a Corporate Gifts landing page with bulk pricing, custom boxes and a quote form.",
+          "Move \"Introducing Shanga\" into Our Makers."
+        ],
+        "impact": [
+          {
+            "value": "+10 to 20%",
+            "label": "sessions reaching a product page"
+          },
+          {
+            "value": "New channel",
+            "label": "corporate orders, typically 10 to 50 units each"
+          }
+        ]
+      },
+      {
+        "id": "06",
+        "severity": "high",
+        "area": "Product page",
+        "effort": "M",
+        "title": "On a laptop, the Add to Cart button and the product photo are not visible on load",
+        "layout": "wide",
+        "shots": [
+          {
+            "device": "desktop",
+            "src": "f06-9.jpg",
+            "url": "parcelsgifts.com/product/10-oz-candy-cane-bath-tea",
+            "alt": "Product image still loading; Add to Cart below the fold at 1024 x 768",
+            "width": 800,
+            "height": 609,
+            "caption": "Product image still loading; Add to Cart below the fold at 1024 x 768",
+            "marks": [
+              {
+                "n": 1,
+                "x": 8.5,
+                "y": 30,
+                "w": 48.5,
+                "h": 63,
+                "pin": "tl"
+              },
+              {
+                "n": 2,
+                "x": 61,
+                "y": 88,
+                "w": 32,
+                "h": 11,
+                "pin": "tr"
+              }
+            ]
+          },
+          {
+            "device": "mobile",
+            "src": "f06-10.jpg",
+            "alt": "Mobile: grey placeholder fills the screen",
+            "width": 750,
+            "height": 1624,
+            "caption": "Mobile: grey placeholder fills the screen",
+            "marks": [
+              {
+                "n": 3,
+                "x": 0,
+                "y": 8.4,
+                "w": 100,
+                "h": 46,
+                "pin": "tl"
+              }
+            ]
+          }
+        ],
+        "why": "As load time grows from 1 to 3 seconds, the chance of a mobile visitor bouncing rises by about 32% (Google). A blank image box looks like a broken page.",
+        "found": [
+          "Product images load as grey boxes first; on mobile emulation the first content took [key:about 5 seconds to paint].",
+          "At 1024 x 768 [risk:the Add to Cart button sits below the fold], under gift options and fulfilment choices.",
+          "The homepage transfers [key:about 13 MB across 199 requests], heavy for a phone on cellular data."
+        ],
+        "recommendations": [
+          "[fix:Compress product images] (WebP, max 1600px) and lazy load only below the fold images.",
+          "On desktop, [fix:place price, quantity and Add to Cart above gift options]; collapse fulfilment into one line with a \"change\" link.",
+          "Trim the Instagram feed and third party widgets from the homepage."
+        ],
+        "impact": [
+          {
+            "value": "-40 to 60%",
+            "label": "page weight"
+          },
+          {
+            "value": "+5 to 10%",
+            "label": "mobile conversion rate"
+          }
+        ]
+      },
+      {
+        "id": "07",
+        "severity": "high",
+        "area": "Trust",
+        "effort": "S",
+        "title": "No shipping, returns, FAQ or contact links in the footer; returns policy hidden in the cart",
+        "layout": "wide",
+        "shots": [
+          {
+            "device": "desktop",
+            "src": "f07-11.jpg",
+            "url": "parcelsgifts.com",
+            "alt": "Footer: logo, copyright and social icons only",
+            "width": 400,
+            "height": 300,
+            "caption": "Footer: logo, copyright and social icons only",
+            "marks": [
+              {
+                "n": 1,
+                "x": 0,
+                "y": 78,
+                "w": 100,
+                "h": 22,
+                "pin": "tl"
+              }
+            ]
+          },
+          {
+            "device": "desktop",
+            "src": "f07-12.jpg",
+            "url": "parcelsgifts.com/about-us",
+            "alt": "About page: two text blocks, no photos",
+            "width": 800,
+            "height": 609,
+            "caption": "About page: two text blocks, no photos",
+            "marks": [
+              {
+                "n": 2,
+                "x": 22,
+                "y": 30,
+                "w": 56,
+                "h": 70,
+                "pin": "tl"
+              }
+            ]
+          }
+        ],
+        "why": "First time buyers look for shipping times and return rules before they pay, especially for gifts. Missing answers create doubt at exactly the wrong moment.",
+        "found": [
+          "The footer contains the logo, \"© 2026\" and four social icons. [risk:No policies, FAQ, contact or store link].",
+          "The returns policy is [risk:only visible as a collapsed item on the cart page].",
+          "The About page is two paragraphs of text with no makers, photos or numbers, and its impact figures (12,000 people, nearly 200 communities) [key:differ from ne-arc.org] (10,000+, 190+)."
+        ],
+        "recommendations": [
+          "Footer columns: [fix:Shop, Help (Shipping, Returns, FAQ, Contact), Visit us, About], plus newsletter signup.",
+          "Write one Shipping and Returns page with delivery timelines and holiday cut-off dates.",
+          "Rebuild About as a story page with maker portraits and one consistent set of impact numbers."
+        ],
+        "impact": [
+          {
+            "value": "+5 to 10%",
+            "label": "checkout completion from first time visitors"
+          },
+          {
+            "value": "Fewer",
+            "label": "pre-purchase emails and calls"
+          }
+        ]
+      },
+      {
+        "id": "08",
+        "severity": "high",
+        "area": "Retention",
+        "effort": "S",
+        "title": "No email signup anywhere, so every visitor who leaves is lost",
+        "layout": "wide",
+        "shots": [
+          {
+            "device": "desktop",
+            "src": "f08-13.jpg",
+            "url": "parcelsgifts.com",
+            "alt": "The only form is \"Contact us\"",
+            "width": 800,
+            "height": 600,
+            "caption": "The only form is \"Contact us\"",
+            "marks": [
+              {
+                "n": 1,
+                "x": 8,
+                "y": 82,
+                "w": 84,
+                "h": 18,
+                "pin": "tl"
+              }
+            ]
+          }
+        ],
+        "why": "Most gift shoppers browse several times before buying. Email lets parcels bring them back for holidays, new makers and events at almost no cost.",
+        "found": [
+          "[risk:There is no newsletter or \"get holiday picks\" signup on any page] we reviewed.",
+          "The Holiday Market on November 21 is [risk:promoted on Instagram but not on the store homepage]."
+        ],
+        "recommendations": [
+          "Add a footer and exit intent signup: [fix:\"Get 10% off your first gift and meet a new maker every month\"].",
+          "Add an announcement bar for the Holiday Market and shipping cut-off dates.",
+          "Set up three automated emails: welcome, abandoned cart, post purchase \"meet your maker\"."
+        ],
+        "impact": [
+          {
+            "value": "2 to 4%",
+            "label": "of visitors subscribing"
+          },
+          {
+            "value": "+10 to 20%",
+            "label": "repeat purchase rate within 12 months"
+          }
+        ]
+      },
+      {
+        "id": "09",
+        "severity": "medium",
+        "area": "Store info",
+        "effort": "S",
+        "title": "Store hours disagree between parcelsgifts.com and ne-arc.org",
+        "layout": "wide",
+        "shots": [
+          {
+            "device": "desktop",
+            "src": "f09-14.jpg",
+            "url": "parcelsgifts.com",
+            "alt": "Store site: Mon to Thu close at 7pm, Sunday opens at 12pm",
+            "width": 800,
+            "height": 600,
+            "caption": "Store site: Mon to Thu close at 7pm, Sunday opens at 12pm",
+            "marks": [
+              {
+                "n": 1,
+                "x": 67,
+                "y": 47,
+                "w": 23,
+                "h": 25,
+                "pin": "tl"
+              }
+            ]
+          }
+        ],
+        "why": "A visitor who drives to the mall based on the wrong hours does not come back. Conflicting details also lower trust in the online store.",
+        "found": [
+          "parcelsgifts.com lists [key:Mon to Thu 10am to 7pm] and Sunday 12pm to 6pm.",
+          "ne-arc.org/parcels lists [key:Mon to Sat 10am to 8pm] and Sunday 11am to 6pm."
+        ],
+        "recommendations": [
+          "Keep [fix:one source of truth] (Google Business Profile) and update both sites from it.",
+          "Add holiday hours to the announcement bar from November to December."
+        ],
+        "impact": [
+          {
+            "value": "Higher",
+            "label": "trust and in-store visits"
+          },
+          {
+            "value": "Fewer",
+            "label": "wasted trips and complaints"
+          }
+        ]
+      },
+      {
+        "id": "10",
+        "severity": "medium",
+        "area": "Content and SEO",
+        "effort": "S",
+        "title": "Typos, SKU style names and a placeholder share image",
+        "layout": "wide",
+        "shots": [
+          {
+            "device": "desktop",
+            "src": "f10-15.jpg",
+            "url": "parcelsgifts.com/s/shop",
+            "alt": "Names read like inventory codes",
+            "width": 800,
+            "height": 609,
+            "caption": "Names read like inventory codes",
+            "marks": [
+              {
+                "n": 1,
+                "x": 35,
+                "y": 62,
+                "w": 57,
+                "h": 11,
+                "pin": "tl"
+              }
+            ]
+          }
+        ],
+        "why": "Search engines and shoppers both read titles first. Clear names like \"Log Cabin Soy Candle, 10 oz, hand poured\" rank better and sell better.",
+        "found": [
+          "Typos: \"autimn\", \"3X6 Tile-Snowmam\", \"Cards and Stationary\" (stationery), \"Epson Salt\" (Epsom).",
+          "Product names such as \"10 Oz Log Cabin\" and \"3x6 Tile-Angel\" [risk:describe size codes, not the gift].",
+          "Homepage title tag is \"Home -parcelsgifts.com | parcels\" and the social share image file is named [risk:\"seo sample.png\"]."
+        ],
+        "recommendations": [
+          "Rename products as [fix:What it is + key detail + maker].",
+          "Set a real homepage title: \"parcels | Handmade gifts by artists with disabilities | Danvers, MA\".",
+          "Upload a branded social share image and fix the typos."
+        ],
+        "impact": [
+          {
+            "value": "+15 to 30%",
+            "label": "organic search traffic in 3 to 6 months"
+          },
+          {
+            "value": "Better",
+            "label": "click through from social shares"
+          }
+        ]
+      },
+      {
+        "id": "11",
+        "severity": "low",
+        "area": "Mobile",
+        "effort": "S",
+        "title": "The floating \"Text us\" button covers content and competes with Add to Cart",
+        "layout": "side",
+        "shots": [
+          {
+            "device": "mobile",
+            "src": "f11-16.jpg",
+            "alt": "\"Text us\" overlaps product options",
+            "width": 750,
+            "height": 1624,
+            "caption": "\"Text us\" overlaps product options",
+            "marks": [
+              {
+                "n": 1,
+                "x": 62,
+                "y": 82,
+                "w": 34,
+                "h": 7,
+                "pin": "tl"
+              }
+            ]
+          }
+        ],
+        "why": "Overlapping controls cause mis-taps and hide content on small screens.",
+        "found": [
+          "The chat bubble [risk:sits over text and buttons on every mobile page], and next to the sticky Add to Cart bar."
+        ],
+        "recommendations": [
+          "[fix:Shrink it to an icon only button] and raise it above the sticky cart bar, or move \"Text us\" into the footer and product page help line."
+        ],
+        "impact": [
+          {
+            "value": "Fewer",
+            "label": "mis-taps on mobile"
+          },
+          {
+            "value": "Cleaner",
+            "label": "product pages"
+          }
+        ]
+      }
+    ]
+  },
+  "impact": {
+    "heading": "What these fixes are worth",
+    "intro": "Ranges are based on published e-commerce benchmarks and our experience with similar small catalog stores. They are directional; the exact baseline should come from Square Online analytics.",
+    "rows": [
+      {
+        "metric": "Homepage to product click through",
+        "finding": "01, 05",
+        "change": "+20 to 35%",
+        "measure": "Square analytics: sessions with a product view"
+      },
+      {
+        "metric": "Add to cart rate",
+        "finding": "02, 03, 06",
+        "change": "+15 to 30%",
+        "measure": "Add to cart events / product views"
+      },
+      {
+        "metric": "Cart abandonment",
+        "finding": "04, 07",
+        "change": "-10 to 20%",
+        "measure": "Checkouts started vs completed"
+      },
+      {
+        "metric": "Average order value",
+        "finding": "03, 04",
+        "change": "+15 to 25%",
+        "measure": "Monthly revenue / orders"
+      },
+      {
+        "metric": "Email subscribers",
+        "finding": "08",
+        "change": "2 to 4% of visitors",
+        "measure": "New subscribers / sessions"
+      },
+      {
+        "metric": "Organic traffic",
+        "finding": "10",
+        "change": "+15 to 30% in 3 to 6 months",
+        "measure": "Google Search Console clicks"
+      }
+    ],
+    "scenario": {
+      "before": {
+        "label": "Illustrative: today",
+        "headline": "$768 / month",
+        "rows": [
+          [
+            "Monthly sessions",
+            "4,000"
+          ],
+          [
+            "Conversion rate",
+            "0.6%"
+          ],
+          [
+            "Orders",
+            "24"
+          ],
+          [
+            "Average order",
+            "$32"
+          ]
+        ]
+      },
+      "after": {
+        "label": "After the 90 day plan",
+        "headline": "$1,600 / month",
+        "rows": [
+          [
+            "Monthly sessions",
+            "4,000"
+          ],
+          [
+            "Conversion rate",
+            "1.0%"
+          ],
+          [
+            "Orders",
+            "40"
+          ],
+          [
+            "Average order",
+            "$40"
+          ]
+        ]
+      },
+      "note": "Illustrative model with assumed traffic, not parcels data. Small online gift shops typically convert 0.5 to 1.5% of visits. The model holds traffic flat; improvements to SEO, email and the ne-arc.org homepage (see the companion Northeast Arc report) would raise it further. Replace the inputs with real Square numbers to get your own projection."
+    }
+  },
+  "roadmap": {
+    "heading": "A 90 day plan, quick wins first",
+    "intro": "Sequenced so the cheapest, highest impact fixes ship in the first two weeks and pay for the rest.",
+    "phases": [
+      {
+        "when": "Weeks 1 to 2",
+        "title": "Quick wins",
+        "items": [
+          "Default sort to Popularity, add price and holiday chips",
+          "New hero headline with two gift buttons, move Most popular up",
+          "Lower free shipping threshold, fix $0.00 estimate",
+          "Fix store hours, typos, title tag, share image",
+          "Add newsletter signup and Holiday Market banner"
+        ]
+      },
+      {
+        "when": "Weeks 3 to 6",
+        "title": "Product pages that sell",
+        "items": [
+          "\"Meet the maker\" card and impact line on top 100 products",
+          "Related products and gift add-ons in cart",
+          "Shipping, Returns and FAQ pages, new footer",
+          "Image compression and lighter homepage"
+        ]
+      },
+      {
+        "when": "Weeks 7 to 12",
+        "title": "Grow the channel",
+        "items": [
+          "Corporate Gifts landing page and quote form",
+          "Photo reshoot of top 50 sellers on one backdrop",
+          "Our Makers directory and story driven About page",
+          "Welcome, abandoned cart and post purchase emails"
+        ]
+      }
+    ]
+  },
+  "method": {
+    "heading": "How this audit was done",
+    "blocks": [
+      {
+        "title": "Scope and setup",
+        "items": [
+          "Live review on November 4, 2026 of the homepage, Shop All, a product page, cart, About page and mobile views.",
+          "Desktop at 1024 x 768 and mobile emulation at 375 x 812 in Chromium.",
+          "A test item was added to the cart to inspect the cart and then removed. No order was placed."
+        ]
+      },
+      {
+        "title": "Frameworks",
+        "items": [
+          "Nielsen's 10 usability heuristics and an e-commerce checklist based on Baymard Institute research.",
+          "WCAG 2.2 spot checks (alt text, contrast, tap targets).",
+          "Page weight and timing from the browser Performance API."
+        ]
+      },
+      {
+        "title": "Scoring",
+        "items": [
+          "Each area scored 0 to 100 against the checklist; the overall score is the average.",
+          "Severity: Critical blocks purchases, High measurably reduces conversion, Medium and Low affect trust and polish."
+        ]
+      },
+      {
+        "title": "Limitations",
+        "items": [
+          "No access to Square analytics, so impact ranges are estimates to be validated against real data.",
+          "Checkout beyond the cart was not tested to avoid placing an order."
+        ]
+      }
+    ]
+  },
+  "footer": "Cognixlab · AR Tanveer · UX, brand and AI transformation"
+}

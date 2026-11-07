@@ -1,0 +1,824 @@
+{
+  "slug": "northeast-arc",
+  "exportName": "NortheastArc-UX-Audit-Report",
+  "agency": {
+    "name": "Cognixlab",
+    "initial": "C"
+  },
+  "reportType": "UX & Conversion Audit",
+  "date": "November 4, 2026",
+  "auditKind": "Website audit",
+  "site": "ne-arc.org",
+  "title": "A strong mission, [mute:too many doors.] Making ne-arc.org work for families, donors and parcels.",
+  "lede": "A review of the Northeast Arc homepage and its key journeys: getting support, donating, and shopping at parcels, on desktop and mobile.",
+  "score": {
+    "overall": 58,
+    "areas": [
+      {
+        "label": "Clarity of paths",
+        "score": 52
+      },
+      {
+        "label": "Donation journey",
+        "score": 44
+      },
+      {
+        "label": "Mobile experience",
+        "score": 50
+      },
+      {
+        "label": "Content and trust",
+        "score": 72
+      },
+      {
+        "label": "Performance and accessibility",
+        "score": 60
+      }
+    ]
+  },
+  "meta": [
+    {
+      "label": "Website",
+      "value": "ne-arc.org"
+    },
+    {
+      "label": "Pages reviewed",
+      "value": "Homepage, Donate, parcels page, mobile"
+    },
+    {
+      "label": "Devices",
+      "value": "Desktop + mobile"
+    },
+    {
+      "label": "Prepared by",
+      "value": "AR Tanveer, Cognixlab"
+    }
+  ],
+  "summary": {
+    "heading": "The site explains who Northeast Arc is. It does not tell each visitor what to do next.",
+    "intro": "Northeast Arc serves three very different audiences from one homepage: families looking for help, donors and supporters, and job seekers. Today they all meet a nine slide carousel, a long services grid and a footer full of links. [risk:On phones the Donate button disappears entirely until the footer]. parcels, the organisation's own social enterprise, [risk:is slide five of nine]. The recommendations below give each audience a clear path and use the homepage's traffic to [gain:lift parcels sales].",
+    "kpis": [
+      {
+        "value": "2",
+        "label": "Critical issues blocking sales or goals",
+        "tone": "critical"
+      },
+      {
+        "value": "4",
+        "label": "High priority issues",
+        "tone": "high"
+      },
+      {
+        "value": "3",
+        "label": "Medium and low polish issues",
+        "tone": "medium"
+      },
+      {
+        "value": "2 to 3x",
+        "label": "Estimated increase in visitors sent to the parcels store",
+        "tone": "gain"
+      }
+    ],
+    "takeaways": [
+      {
+        "label": "The core problem",
+        "text": "There is [risk:no single primary action.] Nine rotating slides compete for attention, so families, donors and shoppers all have to hunt."
+      },
+      {
+        "label": "The biggest lever",
+        "text": "On mobile, [key:Donate is hidden] in the menu and only visible in the footer, about 7,100px down the page."
+      },
+      {
+        "label": "The parcels link",
+        "text": "The homepage reaches far more people than the store. A [key:permanent parcels module] would turn existing supporters into gift buyers."
+      }
+    ]
+  },
+  "strengths": {
+    "heading": "What is already working",
+    "intro": "These are worth protecting in any redesign.",
+    "items": [
+      {
+        "title": "Human, credible story",
+        "text": "Founded by parents in 1954, the origin story is moving and well written, and photos show real people served."
+      },
+      {
+        "title": "Social proof",
+        "text": "Awards (Top Workplace, Top Women-Led Businesses) and partner logos (Cummings, BCBS Foundation, ECCF) build trust."
+      },
+      {
+        "title": "Clear intake contact",
+        "text": "A referral email and phone number sit right above the services, so families have a direct line."
+      },
+      {
+        "title": "Accessibility intent",
+        "text": "An accessibility widget and a language switcher are present on every page."
+      },
+      {
+        "title": "Well described services",
+        "text": "Seven service areas each have a short, plain language summary and a Learn more link."
+      },
+      {
+        "title": "Strong impact numbers",
+        "text": "10,000+ people, 190+ communities and 1,100+ employees are memorable proof of scale."
+      }
+    ]
+  },
+  "findings": {
+    "heading": "Issues, evidence and fixes",
+    "intro": "Each finding shows the live screen we captured, the problem marked in orange, what to change, and the result you can expect. Ordered by business impact.",
+    "items": [
+      {
+        "id": "01",
+        "severity": "critical",
+        "area": "Donation",
+        "effort": "S",
+        "title": "On mobile, the Donate button is hidden until the footer, about 7,100px down",
+        "layout": "side",
+        "shots": [
+          {
+            "device": "mobile",
+            "src": "f01-1.jpg",
+            "alt": "Mobile header: social icons and search, no Donate",
+            "width": 375,
+            "height": 812,
+            "caption": "Mobile header: social icons and search, no Donate",
+            "marks": [
+              {
+                "n": 1,
+                "x": 0,
+                "y": 0,
+                "w": 100,
+                "h": 19.5,
+                "pin": "bl"
+              },
+              {
+                "n": 2,
+                "x": 66,
+                "y": 14.5,
+                "w": 25,
+                "h": 6,
+                "pin": "br"
+              }
+            ]
+          },
+          {
+            "device": "mobile",
+            "src": "f01-2.jpg",
+            "alt": "Seven full width service tiles before the footer",
+            "width": 188,
+            "height": 407,
+            "caption": "Seven full width service tiles before the footer",
+            "marks": []
+          }
+        ],
+        "why": "Most nonprofit website traffic now comes from phones, often from social posts. If supporters cannot see how to give within a thumb's reach, many will not open a menu to look for it.",
+        "found": [
+          "On desktop, Donate is a clear purple button in the header. On a 375px phone it is [risk:folded into the MENU].",
+          "The first Donate link visible without opening the menu is in the footer, [key:about 7,100px down a 7,850px page].",
+          "[key:The top 160px] of the phone screen is used by social icons, Careers, News, Contact and a search box."
+        ],
+        "recommendations": [
+          "Keep a [fix:Donate] button visible in the mobile header next to MENU, or add a slim sticky \"Donate\" bar at the bottom.",
+          "[fix:Move social icons and search into the menu] on mobile to give the first screen back to content.",
+          "Use the same purple button style everywhere so Donate is instantly recognisable."
+        ],
+        "impact": [
+          {
+            "value": "+40 to 80%",
+            "label": "mobile visits to the donation page"
+          },
+          {
+            "value": "+15 to 25%",
+            "label": "online gifts from mobile"
+          }
+        ]
+      },
+      {
+        "id": "02",
+        "severity": "critical",
+        "area": "Homepage",
+        "effort": "M",
+        "title": "A nine slide auto carousel replaces a clear headline and primary action",
+        "layout": "wide",
+        "shots": [
+          {
+            "device": "desktop",
+            "src": "f02-3.jpg",
+            "url": "ne-arc.org",
+            "alt": "First slide on load: a photo with no message or button",
+            "width": 800,
+            "height": 609,
+            "caption": "First slide on load: a photo with no message or button",
+            "marks": [
+              {
+                "n": 1,
+                "x": 13.8,
+                "y": 19.7,
+                "w": 72.5,
+                "h": 66.5,
+                "pin": "tl"
+              }
+            ]
+          },
+          {
+            "device": "desktop",
+            "src": "f02-4.jpg",
+            "url": "ne-arc.org",
+            "alt": "Caption box covers the slide dots and clips \"Read more\"",
+            "width": 800,
+            "height": 600,
+            "caption": "Caption box covers the slide dots and clips \"Read more\"",
+            "marks": [
+              {
+                "n": 2,
+                "x": 6.5,
+                "y": 59.5,
+                "w": 60,
+                "h": 26,
+                "pin": "tl"
+              },
+              {
+                "n": 3,
+                "x": 41,
+                "y": 80,
+                "w": 20,
+                "h": 5,
+                "pin": "tr"
+              }
+            ]
+          }
+        ],
+        "why": "Carousels spread attention thin; most visitors only ever see the first slide. When that slide carries no message, the homepage's most valuable space says nothing.",
+        "found": [
+          "The hero [key:rotates nine slides]: awards, jobs, parcels, legacy giving, a playground, mental health training and more.",
+          "On load, the first slide shows a photo with [risk:no headline or button for several seconds]; on mobile the caption area is blank white.",
+          "The caption panel overlaps the slide indicators, and the \"Read more\" link is [risk:cut off by the decorative wave]."
+        ],
+        "recommendations": [
+          "Replace the carousel with a [fix:static hero]: \"Lifelong support for people with disabilities and autism\" plus three buttons: [fix:Get support, Donate, Shop parcels].",
+          "Move news, awards and events into a \"What's happening\" row of three cards below.",
+          "If a carousel stays, stop autoplay, show the caption on load and keep controls clear of the text."
+        ],
+        "impact": [
+          {
+            "value": "+20 to 40%",
+            "label": "clicks from the homepage to key pages"
+          },
+          {
+            "value": "-10 to 20%",
+            "label": "homepage bounce rate"
+          }
+        ]
+      },
+      {
+        "id": "03",
+        "severity": "high",
+        "area": "parcels",
+        "effort": "S",
+        "title": "parcels, the organisation's own store, is buried as slide 5 of 9 and a third level menu item",
+        "layout": "wide",
+        "shots": [
+          {
+            "device": "desktop",
+            "src": "f03-5.jpg",
+            "url": "ne-arc.org",
+            "alt": "The homepage ends without any shop or gift module",
+            "width": 800,
+            "height": 600,
+            "caption": "The homepage ends without any shop or gift module",
+            "marks": [
+              {
+                "n": 1,
+                "x": 5,
+                "y": 62,
+                "w": 90,
+                "h": 12,
+                "pin": "tl"
+              }
+            ]
+          }
+        ],
+        "why": "ne-arc.org reaches families, staff, donors and partners who already care about the mission, the warmest possible audience for parcels. Today almost none of that attention is passed to the store.",
+        "found": [
+          "The only homepage path to parcels is [key:the fifth carousel slide] (\"Visit parcels at the Liberty Tree Mall\") and About Us > Innovative Businesses > parcels.",
+          "The parcels page on ne-arc.org then links out with one \"Shop Online Now\" button.",
+          "There is no product, gift guide or holiday shopping message [risk:anywhere on the homepage in November]."
+        ],
+        "recommendations": [
+          "Add a permanent [fix:\"Shop with purpose\"] band on the homepage with 4 featured products pulled from parcelsgifts.com and a \"Shop holiday gifts\" button.",
+          "Add [fix:Shop parcels] as a top level menu item (with an external link icon).",
+          "Promote parcels in the mailing list and on the Thank you page after a donation."
+        ],
+        "impact": [
+          {
+            "value": "2 to 3x",
+            "label": "referral visits to parcelsgifts.com"
+          },
+          {
+            "value": "+10 to 20%",
+            "label": "parcels online orders from ne-arc.org visitors"
+          }
+        ]
+      },
+      {
+        "id": "04",
+        "severity": "high",
+        "area": "Donation",
+        "effort": "M",
+        "title": "The donation page has no story, no impact framing and no \"why give now\"",
+        "layout": "wide",
+        "shots": [
+          {
+            "device": "desktop",
+            "src": "f04-6.jpg",
+            "url": "ne-arc.org",
+            "alt": "The emotive copy lives on the homepage, not on the donation page",
+            "width": 800,
+            "height": 600,
+            "caption": "The emotive copy lives on the homepage, not on the donation page",
+            "marks": [
+              {
+                "n": 1,
+                "x": 10,
+                "y": 38,
+                "w": 80,
+                "h": 24,
+                "pin": "tl"
+              }
+            ]
+          }
+        ],
+        "why": "Donors give to outcomes, not to forms. A short story and concrete impact amounts typically raise both completion rate and average gift.",
+        "found": [
+          "Apart from the embedded donation form, [risk:the page copy is a single link]: \"Click Here For More Ways To Give\".",
+          "[risk:No headline, photo, impact examples] (\"$50 funds...\"), monthly giving prompt or tax deductible note in the page content.",
+          "Header Donate and footer Donate [risk:point to different pages] (/donate-online-to-northeast-arc/ vs /get-involved/donate/)."
+        ],
+        "recommendations": [
+          "Add a headline and photo above the form, plus 3 impact tiers: [fix:$50, $150, $500] with what each achieves.",
+          "Default to [fix:monthly giving] with a one time option; add \"Your gift is tax deductible\" and a charity rating badge if available.",
+          "Point every Donate link to the same page and add a parcels gift suggestion on the Thank you screen."
+        ],
+        "impact": [
+          {
+            "value": "+10 to 25%",
+            "label": "donation form completion"
+          },
+          {
+            "value": "+15 to 20%",
+            "label": "average online gift"
+          },
+          {
+            "value": "+",
+            "label": "share of recurring donors"
+          }
+        ]
+      },
+      {
+        "id": "05",
+        "severity": "high",
+        "area": "Navigation",
+        "effort": "M",
+        "title": "Families looking for help must decode service names; there is no \"Get support\" path",
+        "layout": "wide",
+        "shots": [
+          {
+            "device": "desktop",
+            "src": "f05-7.jpg",
+            "url": "ne-arc.org",
+            "alt": "Intake details are one line of small text above the grid",
+            "width": 800,
+            "height": 600,
+            "caption": "Intake details are one line of small text above the grid",
+            "marks": [
+              {
+                "n": 1,
+                "x": 12,
+                "y": 16,
+                "w": 76,
+                "h": 5,
+                "pin": "tl"
+              }
+            ]
+          },
+          {
+            "device": "desktop",
+            "src": "f05-8.jpg",
+            "url": "ne-arc.org",
+            "alt": "Seven tiles in a three column grid leave one orphan tile",
+            "width": 800,
+            "height": 600,
+            "caption": "Seven tiles in a three column grid leave one orphan tile",
+            "marks": [
+              {
+                "n": 2,
+                "x": 0,
+                "y": 16,
+                "w": 100,
+                "h": 50.5,
+                "pin": "tl"
+              }
+            ]
+          }
+        ],
+        "why": "A parent arriving after a diagnosis is often stressed and unfamiliar with the jargon. Guiding them by age or need shortens the path to an intake call.",
+        "found": [
+          "Help seekers [risk:must know terms such as] \"Day Habilitation\", \"Specialty ABA\" or \"LTSS\" to find the right service.",
+          "The referral email and phone appear as one line of text, [risk:easy to miss].",
+          "The services grid has 7 tiles in 3 columns, leaving Clinical Services alone with empty space on both sides; the grid is also coded twice (once per screen size), so [risk:screen readers hear every heading twice]."
+        ],
+        "recommendations": [
+          "Add a [fix:\"Find support for...\"] selector: Infant or toddler, School age child, Adult, Family or caregiver.",
+          "Turn the intake line into a prominent card with a \"Request a call back\" form.",
+          "Rebalance the grid (4 + 4 with a \"Find support\" tile) and remove the duplicate markup."
+        ],
+        "impact": [
+          {
+            "value": "+15 to 30%",
+            "label": "intake enquiries from the website"
+          },
+          {
+            "value": "Faster",
+            "label": "time to first contact for families"
+          }
+        ]
+      },
+      {
+        "id": "06",
+        "severity": "medium",
+        "area": "Mobile",
+        "effort": "S",
+        "title": "Mobile first screen: utility bar and a blank caption area push content down",
+        "layout": "side",
+        "shots": [
+          {
+            "device": "mobile",
+            "src": "f06-9.jpg",
+            "alt": "On load, a large blank area sits under the photo",
+            "width": 750,
+            "height": 1624,
+            "caption": "On load, a large blank area sits under the photo",
+            "marks": [
+              {
+                "n": 1,
+                "x": 0,
+                "y": 57,
+                "w": 100,
+                "h": 27,
+                "pin": "tl"
+              }
+            ]
+          },
+          {
+            "device": "mobile",
+            "src": "f06-10.jpg",
+            "alt": "After a few seconds the caption appears",
+            "width": 375,
+            "height": 812,
+            "caption": "After a few seconds the caption appears",
+            "marks": [
+              {
+                "n": 2,
+                "x": 7.5,
+                "y": 44,
+                "w": 86.5,
+                "h": 38,
+                "pin": "tl"
+              }
+            ]
+          }
+        ],
+        "why": "Blank space during load looks broken, and very long pages hide the footer contact details and Donate link.",
+        "found": [
+          "On first load the space below the hero photo is [risk:blank white until the slider script runs].",
+          "The page is [key:about 7,850px tall on a phone], with services stacked as seven full screen tiles."
+        ],
+        "recommendations": [
+          "[fix:Render the caption in HTML on load] instead of waiting for the slider script.",
+          "Show services as a compact two column icon grid on mobile."
+        ],
+        "impact": [
+          {
+            "value": "-30 to 40%",
+            "label": "mobile page length"
+          },
+          {
+            "value": "Higher",
+            "label": "scroll depth to contact and Donate"
+          }
+        ]
+      },
+      {
+        "id": "07",
+        "severity": "medium",
+        "area": "Footer",
+        "effort": "S",
+        "title": "Footer headings collide and text breaks mid word",
+        "layout": "wide",
+        "shots": [
+          {
+            "device": "desktop",
+            "src": "f07-11.jpg",
+            "url": "ne-arc.org",
+            "alt": "\"HEADQUARTERS QUICK LINKS\" run together; \"Massachuset ts\" and \"info@ne- arc.org\" break",
+            "width": 800,
+            "height": 600,
+            "caption": "\"HEADQUARTERS QUICK LINKS\" run together; \"Massachuset ts\" and \"info@ne- arc.org\" break",
+            "marks": [
+              {
+                "n": 1,
+                "x": 13.5,
+                "y": 26.5,
+                "w": 31,
+                "h": 5,
+                "pin": "tl"
+              },
+              {
+                "n": 2,
+                "x": 13.5,
+                "y": 64.5,
+                "w": 9,
+                "h": 7.5,
+                "pin": "bl"
+              },
+              {
+                "n": 3,
+                "x": 76.5,
+                "y": 33,
+                "w": 13,
+                "h": 22,
+                "pin": "tr"
+              }
+            ]
+          }
+        ],
+        "why": "Small layout faults in the footer, where people look for contact details, chip away at the organisation's credibility.",
+        "found": [
+          "The Headquarters and Quick Links headings touch, [risk:reading as one heading].",
+          "Narrow columns break \"Massachusetts\" and the email address across lines.",
+          "The upcoming event link reads \"View Upcoming Event $\" [risk:with a stray dollar sign]."
+        ],
+        "recommendations": [
+          "Use a [fix:4 column grid with fixed gutters]; let long words wrap normally and keep the email on one line.",
+          "Fix the event link label."
+        ],
+        "impact": [
+          {
+            "value": "Better",
+            "label": "perceived quality and trust"
+          },
+          {
+            "value": "Easier",
+            "label": "contact lookup"
+          }
+        ]
+      },
+      {
+        "id": "08",
+        "severity": "medium",
+        "area": "Retention",
+        "effort": "S",
+        "title": "\"Join our mailing list\" sends people to another page instead of capturing the email",
+        "layout": "wide",
+        "shots": [
+          {
+            "device": "desktop",
+            "src": "f08-12.jpg",
+            "url": "ne-arc.org",
+            "alt": "The Sign up button links to the Get Involved page",
+            "width": 800,
+            "height": 600,
+            "caption": "The Sign up button links to the Get Involved page",
+            "marks": [
+              {
+                "n": 1,
+                "x": 51.5,
+                "y": 64.5,
+                "w": 42,
+                "h": 9,
+                "pin": "tr"
+              }
+            ]
+          }
+        ],
+        "why": "Every extra click loses subscribers. The mailing list is the cheapest channel for donations, events and parcels promotions.",
+        "found": [
+          "The large Sign up button opens /get-involved/ [risk:rather than showing an email field].",
+          "[key:Impact numbers differ across properties]: 10,000+ people and 190+ towns here, 12,000 people and nearly 200 communities on parcelsgifts.com."
+        ],
+        "recommendations": [
+          "Put an [fix:email field and button directly in the band]; offer interests (Donor news, Family resources, parcels gifts).",
+          "Align impact numbers across ne-arc.org and parcelsgifts.com."
+        ],
+        "impact": [
+          {
+            "value": "+30 to 50%",
+            "label": "mailing list signups"
+          },
+          {
+            "value": "Consistent",
+            "label": "impact story across sites"
+          }
+        ]
+      },
+      {
+        "id": "09",
+        "severity": "high",
+        "area": "Performance and access",
+        "effort": "M",
+        "title": "A heavy homepage, and inner pages that refused our test browser",
+        "layout": "wide",
+        "shots": [],
+        "why": "Slow pages lose mobile visitors, and an over strict security rule can silently block donors and families, particularly on shared networks, VPNs or privacy browsers.",
+        "found": [
+          "The homepage made [key:193 requests and transferred about 14 MB], with 156 script tags; full load took about 3.3 seconds on a fast connection.",
+          "After the homepage loaded, every inner page we opened in our test browser (About, Services, Donate) [risk:returned \"403 Forbidden\"] from the server.",
+          "The same pages loaded when fetched by a different client, which suggests a firewall or bot rule that [risk:may also block some real visitors]."
+        ],
+        "recommendations": [
+          "[fix:Audit plugins and scripts] (events, Instagram, sliders, translation) and remove what is not used on the homepage.",
+          "Serve images as WebP at display size; enable caching and a CDN.",
+          "[fix:Ask the hosting provider to review WAF and rate limit rules] and check server logs for legitimate visitors receiving 403 errors."
+        ],
+        "impact": [
+          {
+            "value": "-50 to 70%",
+            "label": "homepage page weight"
+          },
+          {
+            "value": "Recovered",
+            "label": "visitors currently blocked by 403 errors"
+          }
+        ]
+      }
+    ]
+  },
+  "impact": {
+    "heading": "What these fixes are worth",
+    "intro": "Ranges are based on nonprofit and e-commerce benchmarks and our experience. They are directional; validate with Google Analytics and your donation platform reports.",
+    "rows": [
+      {
+        "metric": "Mobile visits to Donate",
+        "finding": "01",
+        "change": "+40 to 80%",
+        "measure": "GA4: page views of the donation page from mobile"
+      },
+      {
+        "metric": "Donation form completion",
+        "finding": "04",
+        "change": "+10 to 25%",
+        "measure": "GiveWP: completed / form views"
+      },
+      {
+        "metric": "Average online gift",
+        "finding": "04",
+        "change": "+15 to 20%",
+        "measure": "GiveWP reports"
+      },
+      {
+        "metric": "Intake enquiries",
+        "finding": "05",
+        "change": "+15 to 30%",
+        "measure": "Referral emails, calls and form submissions"
+      },
+      {
+        "metric": "Referral visits to parcels",
+        "finding": "03",
+        "change": "2 to 3x",
+        "measure": "Square: sessions referred by ne-arc.org (UTM tagged)"
+      },
+      {
+        "metric": "Mailing list signups",
+        "finding": "08",
+        "change": "+30 to 50%",
+        "measure": "New contacts per month"
+      },
+      {
+        "metric": "Homepage weight",
+        "finding": "09",
+        "change": "-50 to 70%",
+        "measure": "PageSpeed Insights, mobile"
+      }
+    ],
+    "scenario": {
+      "before": {
+        "label": "Illustrative: parcels referrals today",
+        "headline": "200 / month",
+        "rows": [
+          [
+            "Visitors sent to parcels",
+            "200"
+          ],
+          [
+            "Store conversion",
+            "0.6%"
+          ],
+          [
+            "Orders",
+            "1.2"
+          ],
+          [
+            "Revenue at $32",
+            "$38"
+          ]
+        ]
+      },
+      "after": {
+        "label": "With a homepage shop band",
+        "headline": "600 / month",
+        "rows": [
+          [
+            "Visitors sent to parcels",
+            "600"
+          ],
+          [
+            "Store conversion (after store fixes)",
+            "1.0%"
+          ],
+          [
+            "Orders",
+            "6"
+          ],
+          [
+            "Revenue at $40",
+            "$240"
+          ]
+        ]
+      },
+      "note": "Illustrative model with assumed traffic, not Northeast Arc data. Supporters arriving from ne-arc.org are mission aware, so they usually convert better than average shop visitors; this model is deliberately conservative. Tag all parcels links with UTM parameters to measure the real effect."
+    }
+  },
+  "roadmap": {
+    "heading": "A 90 day plan, quick wins first",
+    "intro": "Sequenced so the cheapest, highest impact fixes ship in the first two weeks and pay for the rest.",
+    "phases": [
+      {
+        "when": "Weeks 1 to 2",
+        "title": "Quick wins",
+        "items": [
+          "Visible Donate button in the mobile header",
+          "Shop parcels in the main menu, UTM tagged",
+          "Inline mailing list field",
+          "Footer fixes and one Donate destination",
+          "Hosting review of 403 / WAF rules"
+        ]
+      },
+      {
+        "when": "Weeks 3 to 6",
+        "title": "Clear paths",
+        "items": [
+          "Static hero with Get support, Donate, Shop parcels",
+          "\"Shop with purpose\" homepage band",
+          "Donation page story and impact tiers",
+          "Script and image clean up"
+        ]
+      },
+      {
+        "when": "Weeks 7 to 12",
+        "title": "Deeper journeys",
+        "items": [
+          "\"Find support for...\" selector and call back form",
+          "Rebuilt services grid and mobile layout",
+          "Monthly giving program and donor thank you journey",
+          "Shared impact numbers across both sites"
+        ]
+      }
+    ]
+  },
+  "method": {
+    "heading": "How this audit was done",
+    "blocks": [
+      {
+        "title": "Scope and setup",
+        "items": [
+          "Live review on November 4, 2026 of the homepage on desktop (1024 x 768) and mobile emulation (375 x 812) in Chromium.",
+          "The Donate and parcels pages were reviewed from their page source, because the test browser received 403 errors on inner pages."
+        ]
+      },
+      {
+        "title": "Frameworks",
+        "items": [
+          "Nielsen's 10 usability heuristics and a nonprofit donation journey checklist.",
+          "WCAG 2.2 spot checks (heading structure, duplicated content, tap targets).",
+          "Page weight and timing from the browser Performance API."
+        ]
+      },
+      {
+        "title": "Scoring",
+        "items": [
+          "Each area scored 0 to 100 against the checklist; the overall score is the average.",
+          "Severity: Critical blocks a primary goal (donating, getting support), High measurably reduces it, Medium and Low affect trust and polish."
+        ]
+      },
+      {
+        "title": "Limitations",
+        "items": [
+          "No access to analytics or donation data, so impact ranges are estimates.",
+          "Interior service pages could not be inspected visually; a follow up review is recommended once access rules are confirmed."
+        ]
+      }
+    ]
+  },
+  "footer": "Cognixlab · AR Tanveer · UX, brand and AI transformation"
+}

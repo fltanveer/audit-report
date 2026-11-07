@@ -1,0 +1,101 @@
+{
+  "exportName": "__SLUG__-UX-Audit-Report",
+  "agency": { "name": "Cognixlab", "initial": "C" },
+  "reportType": "UX & Conversion Audit",
+  "date": "Month D, YYYY",
+  "auditKind": "Website audit",
+  "site": "example.org",
+  "title": "One claim about the site, [mute:the tension in a few words.] What this audit fixes.",
+  "lede": "One or two sentences on what was reviewed and the question the audit answers.",
+  "score": {
+    "overall": 0,
+    "areas": [
+      { "label": "Area one", "score": 0 },
+      { "label": "Area two", "score": 0 }
+    ]
+  },
+  "meta": [
+    { "label": "Website", "value": "example.org" },
+    { "label": "Pages reviewed", "value": "Home, ..." },
+    { "label": "Devices", "value": "Desktop + mobile" },
+    { "label": "Prepared by", "value": "AR Tanveer, Cognixlab" }
+  ],
+  "summary": {
+    "heading": "The single sentence verdict.",
+    "intro": "Short paragraph. Use [risk:problems], [fix:actions], [gain:results] and [key:facts] sparingly.",
+    "kpis": [
+      { "value": "0", "label": "Critical issues blocking sales or goals", "tone": "critical" },
+      { "value": "0", "label": "High priority issues", "tone": "high" },
+      { "value": "0", "label": "Medium and low polish issues", "tone": "medium" },
+      { "value": "+0 to 0%", "label": "Estimated lift after the 90 day plan", "tone": "gain" }
+    ],
+    "takeaways": [
+      { "label": "The core problem", "text": "..." },
+      { "label": "The biggest lever", "text": "..." },
+      { "label": "The money leak", "text": "..." }
+    ]
+  },
+  "strengths": {
+    "heading": "What is already working",
+    "intro": "These are worth protecting in any redesign.",
+    "items": [ { "title": "...", "text": "..." } ]
+  },
+  "findings": {
+    "heading": "Issues, evidence and fixes",
+    "intro": "Each finding shows the live screen we captured, the problem marked in orange, what to change, and the result you can expect. Ordered by business impact.",
+    "items": [
+      {
+        "id": "01",
+        "severity": "critical",
+        "area": "Homepage",
+        "effort": "S",
+        "title": "What is wrong, stated as a fact",
+        "shots": [
+          {
+            "device": "desktop",
+            "url": "example.org",
+            "src": "f01-1.jpg",
+            "alt": "What the screenshot shows",
+            "caption": "What the screenshot shows",
+            "width": 800,
+            "height": 600,
+            "marks": [ { "n": 1, "x": 10, "y": 20, "w": 40, "h": 15, "pin": "tl" } ]
+          }
+        ],
+        "why": "Why it costs the client money or goals.",
+        "found": [ "Evidence with the [risk:decisive phrase] highlighted." ],
+        "recommendations": [ "[fix:The action] and how to do it." ],
+        "impact": [ { "value": "+10 to 20%", "label": "metric it moves" } ]
+      }
+    ]
+  },
+  "impact": {
+    "heading": "What these fixes are worth",
+    "intro": "Ranges are directional; validate with analytics.",
+    "rows": [ { "metric": "...", "finding": "01", "change": "+10 to 20%", "measure": "How to measure it" } ],
+    "scenario": {
+      "before": { "label": "Illustrative: today", "headline": "0 / month", "rows": [ ["Visitors", "0"] ] },
+      "after": { "label": "With the fixes", "headline": "0 / month", "rows": [ ["Visitors", "0"] ] },
+      "note": "Illustrative model with assumed traffic, not client data."
+    }
+  },
+  "roadmap": {
+    "heading": "A 90 day plan, quick wins first",
+    "intro": "Sequenced so the cheapest, highest impact fixes ship first.",
+    "phases": [
+      { "when": "Weeks 1 to 2", "title": "Quick wins", "items": [ "..." ] },
+      { "when": "Weeks 3 to 6", "title": "...", "items": [ "..." ] },
+      { "when": "Weeks 7 to 12", "title": "...", "items": [ "..." ] }
+    ]
+  },
+  "method": {
+    "heading": "How this audit was done",
+    "blocks": [
+      { "title": "Scope and setup", "items": [ "..." ] },
+      { "title": "Frameworks", "items": [ "..." ] },
+      { "title": "Scoring", "items": [ "..." ] },
+      { "title": "Limitations", "items": [ "..." ] }
+    ]
+  },
+  "footer": "Cognixlab · AR Tanveer · UX, brand and AI transformation"
+}

@@ -1,0 +1,66 @@
+/* Shared design tokens. Text colors meet WCAG AA (4.5:1+) on both --canvas and --canvas-alt. */
+:root{
+  --canvas:#FFFFFF;
+  --canvas-alt:#F3F5F8;
+  --surface:#FFFFFF;
+  --line:#D3D8E0;
+  --line-strong:#A9B2BF;
+
+  --ink:#121826;        /* 17.4:1 on white */
+  --ink2:#343C4C;       /* 10.9:1 */
+  --ink3:#535C6E;       /*  6.7:1, smallest allowed text color */
+
+  /* screenshot annotation pen: only for marks on screenshots */
+  --mark:#E5482A;
+
+  /* semantic highlights: tinted fill + dark same-hue text, each 7:1+ */
+  --risk-bg:#FDE1DB;  --risk-ink:#8A1A0C;  --risk-line:#E8A79A;
+  --fix-bg:#DCE6FC;   --fix-ink:#163C8C;   --fix-line:#9DB5EA;
+  --gain-bg:#D5EFDF;  --gain-ink:#0D5530;  --gain-line:#8CC9A5;
+  --key-bg:#FFEBA8;   --key-ink:#553D00;   --key-line:#E2C25A;
+
+  /* severity: text-safe on white (5:1+) */
+  --sev-critical:#C21F0E;
+  --sev-high:#B04600;
+  --sev-medium:#866000;
+  --sev-low:#535C6E;
+  --pip-off:#D3D8E0;
+
+  --r-sm:6px;--r-md:10px;--r-lg:14px;
+  --shadow-float:0 1px 2px rgba(18,24,38,.08),0 18px 40px -18px rgba(18,24,38,.32);
+  --display:'Bricolage Grotesque','Inter',system-ui,sans-serif;
+  --text:'Inter',system-ui,sans-serif;
+  --mono:'Plex Mono',ui-monospace,'Cascadia Mono',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--canvas);color:var(--ink);font-family:var(--text);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:var(--display);font-weight:600;letter-spacing:-.025em;line-height:1.05;text-wrap:balance}
+b,strong{font-weight:600}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+
+/* ---- highlight marks: [risk:..] [fix:..] [gain:..] [key:..] ---- */
+mark{font-weight:600;padding:.04em .18em;border-radius:3px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+mark.hl-risk{background:var(--risk-bg);color:var(--risk-ink)}
+mark.hl-fix{background:var(--fix-bg);color:var(--fix-ink)}
+mark.hl-gain{background:var(--gain-bg);color:var(--gain-ink)}
+mark.hl-key{background:var(--key-bg);color:var(--key-ink)}
+.mute{color:var(--ink3)}
+
+/* ---- severity pip meter ---- */
+.pips{--c:var(--sev-low);--n:1;display:inline-block;width:26px;height:10px;flex:none;border-radius:1px;
+  background:
+    linear-gradient(90deg,var(--c) 0 5px,transparent 5px 7px,
+      var(--p2,var(--pip-off)) 7px 12px,transparent 12px 14px,
+      var(--p3,var(--pip-off)) 14px 19px,transparent 19px 21px,
+      var(--p4,var(--pip-off)) 21px 26px)}
+.sev-critical{--c:var(--sev-critical)}
+.sev-high{--c:var(--sev-high)}
+.sev-medium{--c:var(--sev-medium)}
+.sev-low{--c:var(--sev-low)}
+.pips.sev-critical{--p2:var(--c);--p3:var(--c);--p4:var(--c)}
+.pips.sev-high{--p2:var(--c);--p3:var(--c)}
+.pips.sev-medium{--p2:var(--c)}
+
+@media print{*{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
